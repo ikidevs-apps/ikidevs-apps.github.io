@@ -8,16 +8,14 @@ import Link from "next/link";
 // ---------------------------------------------------------------------------
 function ClimbAppMockup() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-[#0b0b1a] overflow-hidden">
-      <Image
-        src="/images/climb-app-photo.png"
-        alt="CLIMB app — Standard mode climbing screen"
-        width={994}
-        height={1972}
-        priority
-        className="h-full w-auto max-h-full object-contain select-none pointer-events-none"
-      />
-    </div>
+    <Image
+      src="/images/climb-app-photo.png"
+      alt="CLIMB app — Standard mode climbing screen"
+      width={994}
+      height={1972}
+      priority
+      className="w-full h-full object-cover select-none pointer-events-none"
+    />
   );
 }
 
