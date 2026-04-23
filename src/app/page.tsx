@@ -1,148 +1,22 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import NeuralBackground from "@/components/ui/flow-field-background";
+import Image from "next/image";
 import Link from "next/link";
 
 // ---------------------------------------------------------------------------
-// CLIMB app mockup — shown inside the 3D scroll card
+// CLIMB app screenshot — shown inside the 3D scroll card
 // ---------------------------------------------------------------------------
 function ClimbAppMockup() {
-  const stars = [
-    [12, 7], [28, 14], [52, 5], [70, 11], [86, 4],
-    [18, 22], [44, 17], [63, 26], [79, 9], [8, 31],
-    [35, 8], [58, 19], [92, 14], [22, 35], [75, 28],
-  ];
-
   return (
-    <div className="w-full h-full flex flex-col bg-[#0b0b1a] overflow-hidden">
-
-      {/* ── Top bar ── */}
-      <div className="flex items-start justify-between px-5 md:px-8 pt-5 pb-2 shrink-0">
-        <div>
-          <p className="text-[9px] md:text-[11px] font-bold tracking-[0.16em] uppercase text-indigo-400/70 mb-1">
-            Standard Mode
-          </p>
-          <p className="text-[26px] md:text-[42px] font-extrabold text-white tabular-nums tracking-tight leading-none">
-            2:15:00
-          </p>
-        </div>
-        <div className="text-right">
-          <p className="text-[9px] md:text-[11px] font-semibold tracking-wider uppercase text-white/25 mb-1">
-            Goal
-          </p>
-          <p className="text-base md:text-2xl font-bold text-white/45 tabular-nums">
-            3:00:00
-          </p>
-        </div>
-      </div>
-
-      {/* ── Mountain scene ── */}
-      <div className="flex-1 relative overflow-hidden mx-4 md:mx-6 rounded-2xl">
-        {/* Sky */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#08082a] via-[#0d0d22] to-[#151530]" />
-
-        {/* Stars */}
-        {stars.map(([x, y], i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-white/50"
-            style={{ left: `${x}%`, top: `${y}%`, width: 2, height: 2 }}
-          />
-        ))}
-
-        {/* Moon */}
-        <div
-          className="absolute top-3 right-5 w-5 h-5 rounded-full"
-          style={{
-            background: "rgba(254,249,195,0.18)",
-            boxShadow: "0 0 14px 5px rgba(254,249,195,0.12)",
-          }}
-        />
-
-        {/* Back-range mountains */}
-        <svg
-          className="absolute bottom-0 w-full"
-          viewBox="0 0 800 280"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,280 L130,110 L260,170 L390,70 L510,150 L640,55 L750,125 L800,95 L800,280 Z"
-            fill="#161640"
-            opacity="0.7"
-          />
-          <path
-            d="M0,280 L90,155 L210,75 L340,155 L460,55 L580,135 L700,65 L800,125 L800,280 Z"
-            fill="#101030"
-            opacity="0.9"
-          />
-        </svg>
-
-        {/* Snow caps */}
-        <svg
-          className="absolute bottom-0 w-full"
-          viewBox="0 0 800 280"
-          preserveAspectRatio="none"
-        >
-          <path d="M195,82 L210,70 L225,82 Z" fill="white" opacity="0.25" />
-          <path d="M447,62 L460,50 L473,62 Z" fill="white" opacity="0.25" />
-        </svg>
-
-        {/* Camp marker */}
-        <div
-          className="absolute text-sm md:text-base select-none"
-          style={{ bottom: "30%", left: "38%" }}
-        >
-          ⛺
-        </div>
-
-        {/* Climber with glow ping */}
-        <div
-          className="absolute"
-          style={{ bottom: "49%", left: "53%" }}
-        >
-          <div className="relative flex items-center justify-center">
-            <div className="absolute w-5 h-5 rounded-full bg-indigo-400/25 animate-ping" />
-            <div
-              className="w-3 h-3 rounded-full bg-indigo-400"
-              style={{ boxShadow: "0 0 10px 3px rgba(129,140,248,0.55)" }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* ── Progress bar ── */}
-      <div className="px-5 md:px-8 pt-3 pb-2 shrink-0">
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-white/25">
-            Progress
-          </span>
-          <span className="text-[11px] md:text-[13px] font-bold text-indigo-400">73%</span>
-        </div>
-        <div className="h-[5px] bg-white/10 rounded-full overflow-hidden">
-          <div className="h-full w-[73%] rounded-full bg-gradient-to-r from-indigo-700 to-indigo-400" />
-        </div>
-      </div>
-
-      {/* ── Stats row ── */}
-      <div className="grid grid-cols-3 gap-2 px-5 md:px-8 pb-5 shrink-0">
-        {[
-          { value: "1,350m", label: "Climbed" },
-          { value: "⛺  2",  label: "Camps"   },
-          { value: "45 min", label: "To Peak"  },
-        ].map((s) => (
-          <div
-            key={s.label}
-            className="bg-white/[0.05] border border-white/[0.07] rounded-xl p-2 md:p-3 text-center"
-          >
-            <p className="text-sm md:text-[17px] font-extrabold text-white leading-none">
-              {s.value}
-            </p>
-            <p className="text-[8px] md:text-[10px] font-bold tracking-wider uppercase text-white/25 mt-1">
-              {s.label}
-            </p>
-          </div>
-        ))}
-      </div>
-
+    <div className="w-full h-full flex items-center justify-center bg-[#0b0b1a] overflow-hidden">
+      <Image
+        src="/images/climb-app-photo.png"
+        alt="CLIMB app — Standard mode climbing screen"
+        width={994}
+        height={1972}
+        priority
+        className="h-full w-auto max-h-full object-contain select-none pointer-events-none"
+      />
     </div>
   );
 }

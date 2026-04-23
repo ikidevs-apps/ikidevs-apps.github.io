@@ -39,15 +39,23 @@ const faqs = [
     q: "How do I delete my account?",
     a: (
       <>
-        Contact us at{" "}
+        Email us at{" "}
         <a
-          href="mailto:support@ikidevs.com"
+          href="mailto:support@ikidevs.com?subject=CLIMB%20Account%20Deletion%20Request"
           className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
         >
           support@ikidevs.com
         </a>{" "}
-        with your registered email address. We will permanently delete your
-        account and all associated data within 7 days.
+        from your registered email address with the subject &ldquo;Account
+        Deletion Request&rdquo;. We will permanently delete your account and
+        all associated data within 7 days. Full details are on our{" "}
+        <Link
+          href="/climb/delete-account/"
+          className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
+        >
+          Delete Account
+        </Link>{" "}
+        page.
       </>
     ),
   },

@@ -13,13 +13,16 @@ const sections = [
       <>
         <p>
           CLIMB (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a study tracking app
-          developed by ikidevs. This policy explains how we collect and use your
-          information when you use the CLIMB application.
+          operated by two independent developers under the name
+          &ldquo;ikidevs&rdquo;. This policy explains how we collect and use
+          your information when you use the CLIMB application.
         </p>
         <p>
           By using CLIMB, you agree to the collection and use of information in
           accordance with this policy. We are committed to protecting your
-          privacy and handling your data with care.
+          privacy and handling your data with care. We do not run advertising,
+          we do not use third-party analytics or tracking SDKs, and we do not
+          sell or share your data for marketing purposes.
         </p>
       </>
     ),
@@ -30,10 +33,27 @@ const sections = [
       <>
         <p>We collect the following types of information:</p>
         <ul>
-          <li>Email address and display name via account registration</li>
-          <li>Study session data (duration, progress, meters climbed)</li>
-          <li>Task information you create within the app</li>
-          <li>Device information necessary for app functionality</li>
+          <li>
+            <strong>Account information:</strong> email address and display
+            name, provided during registration.
+          </li>
+          <li>
+            <strong>Study content:</strong> study sessions (start time, end
+            time, duration, breaks, meters climbed), mountains you create, and
+            tasks you add within the app.
+          </li>
+          <li>
+            <strong>Device information:</strong> app version, operating system
+            version, device model, and device language — used to diagnose
+            crashes and ensure compatibility.
+          </li>
+          <li>
+            <strong>Push notification token:</strong> if you grant notification
+            permission, a device-specific token issued by Firebase Cloud
+            Messaging, used only to deliver notifications you have opted into
+            (session-complete, badge earned, task overdue, daily reminder,
+            streak-at-risk).
+          </li>
         </ul>
       </>
     ),
@@ -43,37 +63,79 @@ const sections = [
     body: (
       <>
         <ul>
-          <li>To provide, maintain and improve the app</li>
-          <li>To sync your data across devices</li>
-          <li>To send notifications you have requested</li>
+          <li>To provide, maintain, and improve the app</li>
+          <li>To sync your data across your devices</li>
+          <li>To send notifications you have opted into</li>
+          <li>
+            To respond to support requests and enforce our terms (e.g. handle
+            account deletion requests)
+          </li>
         </ul>
         <div className="mt-4 bg-indigo-500/10 border-l-4 border-indigo-500 rounded-lg px-4 py-3 text-[13px] text-white/50 leading-relaxed">
-          We do not sell your data to any third party. Your information is used
-          solely to operate and improve the CLIMB experience for you.
+          We do not sell your data to any third party, and we do not share it
+          with advertising networks, data brokers, or third-party analytics
+          services. Your information is used solely to operate CLIMB for you.
         </div>
       </>
     ),
   },
   {
-    title: "4. Data Storage & Security",
+    title: "4. Legal Basis for Processing (EU / UK users)",
+    body: (
+      <>
+        <p>
+          If you are located in the European Economic Area or the United
+          Kingdom, we process your personal data under the following legal
+          bases of the GDPR / UK GDPR:
+        </p>
+        <ul>
+          <li>
+            <strong>Performance of a contract</strong> (Article 6(1)(b)) — to
+            provide the CLIMB service you signed up for (account, study
+            tracking, data sync).
+          </li>
+          <li>
+            <strong>Your consent</strong> (Article 6(1)(a)) — for push
+            notifications. You may withdraw consent at any time in your device
+            settings.
+          </li>
+          <li>
+            <strong>Legitimate interests</strong> (Article 6(1)(f)) — to
+            secure the service, prevent abuse, and fix bugs. You may object to
+            this processing at any time (see Section 8).
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "5. Data Storage & Security",
     body: (
       <ul>
-        <li>All data stored securely via Google Firebase</li>
-        <li>Servers located in Europe (europe-west1, Belgium)</li>
-        <li>Data is encrypted in transit and at rest</li>
-        <li>We follow industry standard security practices</li>
+        <li>All data is stored in Google Firebase (Firestore and Realtime Database)</li>
+        <li>Servers are located in Europe (europe-west1, Belgium)</li>
+        <li>Data is encrypted in transit (TLS 1.2+) and at rest</li>
+        <li>
+          Passwords are never stored in plain text — authentication is handled
+          by Firebase Auth, which stores hashed credentials
+        </li>
+        <li>
+          Per-user access is enforced at the database level via Firestore and
+          Realtime Database security rules — other users cannot read your data
+        </li>
       </ul>
     ),
   },
   {
-    title: "5. Third Party Services",
+    title: "6. Third Party Services",
     body: (
       <>
         <p>CLIMB uses the following third-party services:</p>
         <ul>
           <li>
-            Google Firebase (Authentication, Firestore Database, Cloud
-            Messaging)
+            <strong>Google Firebase</strong> — Authentication, Cloud Firestore,
+            Realtime Database (for in-progress session sync), and Firebase
+            Cloud Messaging (for push notifications).
           </li>
         </ul>
         <p className="mt-2">
@@ -87,62 +149,167 @@ const sections = [
             firebase.google.com/support/privacy
           </a>
         </p>
+        <p className="mt-2">
+          We do not use any advertising SDKs, analytics SDKs (such as Google
+          Analytics, Firebase Analytics, or AppsFlyer), or crash-reporting SDKs
+          beyond what is listed above.
+        </p>
       </>
     ),
   },
   {
-    title: "6. Data Deletion",
+    title: "7. Data Retention & Deletion",
     body: (
       <ul>
-        <li>You can delete your account from within the app</li>
-        <li>All associated data will be permanently deleted</li>
         <li>
-          You may also contact{" "}
+          We retain your account and study data for as long as your account is
+          active
+        </li>
+        <li>
+          You can request deletion at any time by emailing{" "}
+          <a
+            href="mailto:support@ikidevs.com?subject=CLIMB%20Account%20Deletion%20Request"
+            className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
+          >
+            support@ikidevs.com
+          </a>{" "}
+          from your registered email address
+        </li>
+        <li>
+          Deletion requests are processed within 7 days; residual copies in
+          encrypted backups are purged within 30 days
+        </li>
+        <li>
+          Full instructions are on our{" "}
+          <Link
+            href="/climb/delete-account/"
+            className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
+          >
+            Delete Account
+          </Link>{" "}
+          page
+        </li>
+      </ul>
+    ),
+  },
+  {
+    title: "8. Your Rights",
+    body: (
+      <>
+        <p>
+          Subject to your jurisdiction, you have the following rights over
+          your personal data:
+        </p>
+        <ul>
+          <li>
+            <strong>Access</strong> — request a copy of the data we hold about
+            you
+          </li>
+          <li>
+            <strong>Rectification</strong> — correct inaccurate data (most
+            fields can be edited directly in the app)
+          </li>
+          <li>
+            <strong>Erasure</strong> — delete your account and associated data
+            (see Section 7)
+          </li>
+          <li>
+            <strong>Portability</strong> — receive your data in a
+            machine-readable format
+          </li>
+          <li>
+            <strong>Restriction / objection</strong> — limit or object to how
+            we process your data
+          </li>
+          <li>
+            <strong>Withdraw consent</strong> — revoke any consent you have
+            given (e.g. push notifications)
+          </li>
+        </ul>
+        <p className="mt-3">
+          To exercise any of these rights, email{" "}
+          <a
+            href="mailto:support@ikidevs.com"
+            className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
+          >
+            support@ikidevs.com
+          </a>
+          . EU / UK residents also have the right to lodge a complaint with
+          their local data protection authority.
+        </p>
+        <p className="mt-3">
+          <strong>California residents (CCPA / CPRA):</strong> you have the
+          right to know what personal information we collect, to request
+          deletion, and to opt out of the sale or sharing of personal
+          information. We do not sell or share personal information as defined
+          under California law.
+        </p>
+        <p className="mt-3">
+          <strong>Turkish residents (KVKK):</strong> under Turkish Personal
+          Data Protection Law No. 6698 (KVKK), you have the right to learn
+          whether your personal data is processed, request information about
+          the processing, have inaccurate data corrected, request deletion or
+          destruction, object to the processing, and lodge a complaint with
+          the Personal Data Protection Authority (Kişisel Verileri Koruma
+          Kurumu). To exercise these rights, email{" "}
+          <a
+            href="mailto:support@ikidevs.com"
+            className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
+          >
+            support@ikidevs.com
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "9. Children's Privacy",
+    body: (
+      <ul>
+        <li>CLIMB is not directed at children under the age of 13</li>
+        <li>We do not knowingly collect data from children under 13</li>
+        <li>
+          If you believe a child has provided us with personal data, contact{" "}
           <a
             href="mailto:support@ikidevs.com"
             className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
           >
             support@ikidevs.com
           </a>{" "}
-          to request deletion
-        </li>
-        <li>We will process deletion requests within 7 days</li>
-      </ul>
-    ),
-  },
-  {
-    title: "7. Children's Privacy",
-    body: (
-      <ul>
-        <li>CLIMB is not directed at children under the age of 13</li>
-        <li>We do not knowingly collect data from children under 13</li>
-        <li>
-          If you believe we have collected such data, contact us immediately
+          and we will delete it promptly
         </li>
       </ul>
     ),
   },
   {
-    title: "8. Changes to This Policy",
+    title: "10. Changes to This Policy",
     body: (
       <ul>
         <li>We may update this privacy policy from time to time</li>
         <li>
-          Continued use of the app after changes constitutes acceptance of the
-          new policy
+          The &ldquo;Last updated&rdquo; date at the top of this page reflects
+          the latest revision
         </li>
         <li>
-          Significant changes will be communicated via in-app notification
+          For material changes, we will notify you in-app before the changes
+          take effect
         </li>
       </ul>
     ),
   },
   {
-    title: "9. Contact Us",
+    title: "11. Data Controller & Contact",
     body: (
       <>
         <p>
-          If you have any questions about this privacy policy, please reach out:
+          CLIMB is operated by two independent developers trading as
+          &ldquo;ikidevs&rdquo;. We are joint data controllers for the personal
+          data processed through the app under the GDPR / UK GDPR.
+        </p>
+        <p className="mt-3">
+          For any privacy, data-protection, or account-deletion request, please
+          contact us at:
         </p>
         <ul>
           <li>
@@ -164,6 +331,10 @@ const sections = [
             >
               ikidevs.com
             </a>
+          </li>
+          <li>
+            Postal address: Nur Mah. Vefa Cad. C2 Blok No: 12 İç Kapı No: 5,
+            Artuklu / Mardin, Turkey
           </li>
         </ul>
       </>
@@ -201,7 +372,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="text-[13px] text-white/30 mb-10">
-            Last updated: April 2026
+            Last updated: April 23, 2026
           </p>
 
           <div className="flex flex-col gap-9 mb-16">
