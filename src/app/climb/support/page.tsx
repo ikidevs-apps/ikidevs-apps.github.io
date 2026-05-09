@@ -159,7 +159,14 @@ export default function SupportPage() {
             href="/climb/privacy/"
             className="text-[11px] font-semibold tracking-wider uppercase text-white/25 hover:text-white/55 transition-colors"
           >
-            Privacy Policy
+            Privacy
+          </Link>
+          <span className="text-white/10">·</span>
+          <Link
+            href="/climb/terms/"
+            className="text-[11px] font-semibold tracking-wider uppercase text-white/25 hover:text-white/55 transition-colors"
+          >
+            Terms
           </Link>
           <span className="text-white/10">·</span>
           <span className="text-[11px] text-white/20">© 2026 ikidevs</span>

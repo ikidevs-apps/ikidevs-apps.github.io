@@ -54,6 +54,16 @@ const sections = [
             (session-complete, badge earned, task overdue, daily reminder,
             streak-at-risk).
           </li>
+          <li>
+            <strong>Subscription data:</strong> if you purchase a CLIMB+
+            Premium subscription, we receive subscription-state metadata from
+            our payment processor (RevenueCat) — whether the subscription is
+            active, the renewal date, the product identifier, and recent
+            event types (purchase, renewal, cancellation). We do not receive
+            or store payment-card information at any time. See Section 6 for
+            third-party service details and Section 7 for what we do with
+            this data.
+          </li>
         </ul>
       </>
     ),
@@ -137,6 +147,19 @@ const sections = [
             Realtime Database (for in-progress session sync), and Firebase
             Cloud Messaging (for push notifications).
           </li>
+          <li>
+            <strong>RevenueCat</strong> — payment processor and subscription
+            management for CLIMB+ Premium. RevenueCat receives your purchase
+            receipt from Apple or Google, validates it, and tells us which
+            entitlements you currently hold. RevenueCat acts as a data
+            processor on our behalf.
+          </li>
+          <li>
+            <strong>Apple App Store</strong> (for iOS purchases) and{" "}
+            <strong>Google Play Billing</strong> (for Android purchases) —
+            handle payment, store your purchase receipt, and provide refund
+            mechanisms. Payment-card details never reach us.
+          </li>
         </ul>
         <p className="mt-2">
           Firebase privacy policy:{" "}
@@ -150,6 +173,17 @@ const sections = [
           </a>
         </p>
         <p className="mt-2">
+          RevenueCat privacy policy:{" "}
+          <a
+            href="https://www.revenuecat.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors"
+          >
+            revenuecat.com/privacy
+          </a>
+        </p>
+        <p className="mt-2">
           We do not use any advertising SDKs, analytics SDKs (such as Google
           Analytics, Firebase Analytics, or AppsFlyer), or crash-reporting SDKs
           beyond what is listed above.
@@ -158,7 +192,57 @@ const sections = [
     ),
   },
   {
-    title: "7. Data Retention & Deletion",
+    title: "7. Subscriptions and the Founder Program",
+    body: (
+      <>
+        <p>
+          CLIMB is free to download. CLIMB+ Premium is an optional
+          subscription. If you purchase it, we store the following
+          subscription-related fields on your CLIMB user record:
+        </p>
+        <ul>
+          <li>
+            Whether your CLIMB+ Premium subscription is currently active
+          </li>
+          <li>
+            The current subscription period&rsquo;s expiration date (where
+            applicable)
+          </li>
+          <li>Whether your subscription is set to auto-renew</li>
+          <li>The product identifier of your active subscription</li>
+          <li>
+            The most recent subscription event type (purchase, renewal,
+            cancellation, refund, billing-issue grace period) for support
+            and reconciliation purposes
+          </li>
+        </ul>
+        <p className="mt-3">
+          We do <strong>not</strong> store your payment method, billing
+          address, or transaction amount. Refund requests are handled
+          directly by Apple or Google; we receive a refund event from
+          RevenueCat solely to revoke the corresponding CLIMB+ entitlement
+          on your user record.
+        </p>
+        <p className="mt-3">
+          <strong>Founder program:</strong> the first 1,000 users to sign up
+          for CLIMB receive a permanent founder number (a value between 1
+          and 1,000) stored on their user record, and a lifetime CLIMB+
+          Premium grant at no cost. Once you receive a founder number, that
+          number is permanent and non-transferable. The total signup count
+          is stored in a separate server-side counter that is not associated
+          with any individual user account.
+        </p>
+        <p className="mt-3">
+          <strong>Family Sharing:</strong> CLIMB+ subscriptions are not
+          enabled for Apple Family Sharing or Google Play Family Library.
+          We do not collect or process data about family members of
+          subscribers.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "8. Data Retention & Deletion",
     body: (
       <ul>
         <li>
@@ -193,7 +277,7 @@ const sections = [
     ),
   },
   {
-    title: "8. Your Rights",
+    title: "9. Your Rights",
     body: (
       <>
         <p>
@@ -211,7 +295,7 @@ const sections = [
           </li>
           <li>
             <strong>Erasure</strong> — delete your account and associated data
-            (see Section 7)
+            (see Section 8)
           </li>
           <li>
             <strong>Portability</strong> — receive your data in a
@@ -264,7 +348,7 @@ const sections = [
     ),
   },
   {
-    title: "9. Children's Privacy",
+    title: "10. Children's Privacy",
     body: (
       <ul>
         <li>CLIMB is not directed at children under the age of 13</li>
@@ -283,7 +367,7 @@ const sections = [
     ),
   },
   {
-    title: "10. Changes to This Policy",
+    title: "11. Changes to This Policy",
     body: (
       <ul>
         <li>We may update this privacy policy from time to time</li>
@@ -299,7 +383,7 @@ const sections = [
     ),
   },
   {
-    title: "11. Data Controller & Contact",
+    title: "12. Data Controller & Contact",
     body: (
       <>
         <p>
@@ -372,7 +456,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="text-[13px] text-white/30 mb-10">
-            Last updated: April 23, 2026
+            Last updated: May 9, 2026
           </p>
 
           <div className="flex flex-col gap-9 mb-16">
@@ -397,6 +481,13 @@ export default function PrivacyPage() {
             className="text-[11px] font-semibold tracking-wider uppercase text-white/25 hover:text-white/55 transition-colors"
           >
             Home
+          </Link>
+          <span className="text-white/10">·</span>
+          <Link
+            href="/climb/terms/"
+            className="text-[11px] font-semibold tracking-wider uppercase text-white/25 hover:text-white/55 transition-colors"
+          >
+            Terms
           </Link>
           <span className="text-white/10">·</span>
           <Link
